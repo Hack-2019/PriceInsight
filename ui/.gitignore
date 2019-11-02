@@ -33,4 +33,4 @@ typings/
 !.vscode/extensions.json
 
 # Credentials
-src/res/credentials.json
+src/res/credentials.ts
