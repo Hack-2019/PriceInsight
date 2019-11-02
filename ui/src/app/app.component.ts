@@ -1,7 +1,9 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+
 
 @Component({
-    selector: "ns-app",
-    templateUrl: "./app.component.html"
+    selector: "ns-landingScreen",
+    templateUrl: "./landingScreen/landingScreen.component.html"
 })
-export class AppComponent { }
+export class AppComponent {}
+
