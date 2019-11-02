@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {BehaviorSubject} from "rxjs";
 import {ImageAsset} from "tns-core-modules/image-asset";
+import {GoogleRecognitionService} from "~/app/recognition/google.recognition.service";
 
 @Injectable()
 export class CameraRecognitionService {
@@ -14,7 +15,9 @@ export class CameraRecognitionService {
      */
     cameraObservable = this.cameraFeed.asObservable();
 
-    constructor() {
-
+    constructor(private googleRecognitionService: GoogleRecognitionService) {
+        this.cameraObservable.subscribe((next) => {
+            googleRecognitionService.process(next);
+        });
     }
 }

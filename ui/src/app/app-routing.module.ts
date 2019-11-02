@@ -1,4 +1,4 @@
-import { Component, NgModule } from "@angular/core";
+import { NgModule } from "@angular/core";
 import { Routes } from "@angular/router";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { scan } from "./scan/scan.component";
@@ -13,4 +13,4 @@ const routes: Routes = [
     imports: [NativeScriptRouterModule.forRoot(routes)],
     exports: [NativeScriptRouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {/* sdfsfds  */}

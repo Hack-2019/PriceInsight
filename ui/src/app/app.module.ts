@@ -3,16 +3,22 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import {GoogleRecognitionService} from "~/app/recognition/google.recognition.service";
+import {CameraRecognitionService} from "~/app/recognition/camera.recognition.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
     imports: [
-        NativeScriptModule,AppRoutingModule
-      ],
-      declarations: [AppComponent],
-      bootstrap: [AppComponent],
-      schemas: [NO_ERRORS_SCHEMA]
+        NativeScriptModule,
+        HttpClientModule,
+        AppRoutingModule
+    ],
+    declarations: [AppComponent],
+    providers: [
+        GoogleRecognitionService,
+        CameraRecognitionService
+    ],
+    bootstrap: [AppComponent],
+    schemas: [NO_ERRORS_SCHEMA]
 })
-/*
-Pass your application module to the bootstrapModule function located in main.ts to start your app
-*/
 export class AppModule { }
