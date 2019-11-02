@@ -9,16 +9,5 @@ import {CameraRecognitionService} from "~/app/recognition/camera.recognition.ser
 })
 export class AppComponent {
     constructor(private cameraRecognitionService: CameraRecognitionService) { }
-
-    ngOnInit() {
-        console.log("test");
-        camera.requestPermissions().then(() => {
-             camera.takePicture().then((asset: ImageAsset) => {
-                    console.log("picture fsd sfd received");
-                    this.cameraRecognitionService.cameraFeed.next(asset);
-                 }
-             )
-        });
-    }
 }
 
