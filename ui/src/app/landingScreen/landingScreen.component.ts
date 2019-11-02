@@ -15,9 +15,8 @@ export class landingScreen implements OnInit {
     constructor(private _routerExtensions: RouterExtensions,)
     {
     }
-    onScan(args: GestureEventData){
-        console.log("Here?");
-        /*
+    /*
+    onScan(args: any){
         this._routerExtensions.navigate(["./scan/scan.componenet.html"],
             {
                 animated: true,
@@ -27,8 +26,8 @@ export class landingScreen implements OnInit {
                     curve: "ease"
                 }
             })
-            */
     }
+    */
     ngOnInit(): void {
         console.log('init');
         
