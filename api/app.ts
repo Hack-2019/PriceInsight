@@ -29,7 +29,7 @@ const initializeDatabase = (callback: (err: any) => void) => {
     console.log(`Selecting database ${MONGO_DATABASE}.`);
     db = client.db(MONGO_DATABASE);
 
-    const collectionsToCheck = [ 'users', 'categories', 'priceRecordings' ];
+    const collectionsToCheck = [ 'prices' ];
     console.group(`Checking for collections: ` + JSON.stringify(collectionsToCheck));
     db.listCollections({}, { nameOnly: true }).toArray()
       .then((cols: any) => {
