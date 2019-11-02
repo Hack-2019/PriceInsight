@@ -10,7 +10,7 @@ export class scan implements OnInit {
 
     constructor(private _routerExtensions: RouterExtensions,) {
     }
-
+    
     ngOnInit(): void {
     }
 }
