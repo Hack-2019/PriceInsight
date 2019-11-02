@@ -1,23 +1,24 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular/router";
-import { Image } from "tns-core-modules/ui/image";
 import * as camera from "nativescript-camera";
 import { ImageAsset } from "tns-core-modules/image-asset/image-asset";
+import { CameraRecognitionService } from "~/app/recognition/camera.recognition.service";
 
 @Component({
     selector: "scan",
     moduleId: module.id,
     templateUrl: "./scan.component.html"
 })
-export class scan implements OnInit {
+export class scan {
     image: ImageAsset;
 
-    constructor(private _routerExtensions: RouterExtensions,) {
+    constructor(private routerExtensions: RouterExtensions, private cameraRecognitionService: CameraRecognitionService) {
     }
 
     async ngOnInit() {
-        camera.requestCameraPermissions()
+        await camera.requestCameraPermissions()
 
         this.image = await camera.takePicture();
+        this.cameraRecognitionService.cameraFeed.next(this.image);
     }
 }
