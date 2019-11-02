@@ -2,8 +2,8 @@
   "name": "PriceInsightAPI",
   "version": "0.0.0",
   "scripts": {
-    "start": "node dist/app.js",
-    "start:watch": "nodemon dist/app.js",
+    "start": "node dist/api/app.js",
+    "start:watch": "nodemon dist/api/app.js",
     "build": "rimraf ./dist && tsc",
     "build:watch": "tsc --watch",
     "test": "echo Not implemented.",
@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.1",
-    "@types/mongodb": "^3.3.8",
+    "@types/mongodb": "^3.3.3",
     "@types/node": "~8.9.4",
     "nodemon": "^1.19.4",
     "rimraf": "^3.0.0",

@@ -3,6 +3,7 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { EventData, Page } from "tns-core-modules/ui/page/page";
 import { Button } from "tns-core-modules/ui/button";
 import { GestureEventData } from "tns-core-modules/ui/gestures";
+import * as camera from "nativescript-camera";
 
 @Component({
     selector: "landingScreen",
@@ -11,7 +12,7 @@ import { GestureEventData } from "tns-core-modules/ui/gestures";
 })
 export class landingScreen implements OnInit {
 
-    constructor(private _routerExtensions: RouterExtensions,) 
+    constructor(private _routerExtensions: RouterExtensions,)
     {
     }
     /*
@@ -28,5 +29,15 @@ export class landingScreen implements OnInit {
     }
     */
     ngOnInit(): void {
+        console.log('init');
+        
+        camera.requestPermissions().then(
+            function success() {
+                console.log('success');
+            },
+            function failure() {
+                console.log('fail');
+            }
+        )
     }
 }
