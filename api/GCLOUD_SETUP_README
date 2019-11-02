@@ -1,0 +1,6 @@
+1) Install gcloud CLI
+2) Authenticate your local CLI with your google account: gcloud init
+      ~ I  /think/ the project is created as part of this step
+3) Enable appengine, firestore, and cloud build api
+4) Download the service account key and rename it to gcloud-credentials.json
+

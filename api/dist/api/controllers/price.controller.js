@@ -4,28 +4,26 @@ const express = require('express');
 const router = express.Router();
 // Record price data
 router.post('/', (req, res, next) => {
-    req.db.collection('prices')
-        .insertOne(req.body)
-        .then((result) => {
-        if (result) {
-            res.status(201).send(result);
-            next();
+    req.firestore.collection('prices')
+        .add(req.body)
+        .then((documentReference) => {
+        if (documentReference) {
+            res.status(201).send(documentReference);
         }
         else {
             res.sendStatus(500);
-            next();
         }
+        next();
     });
 });
 // Query prices by UPC
 router.get('/upc/:upc', (req, res, next) => {
     console.log(`Loading pricing for UPC ${req.params.upc}...`);
-    req.db.collection('prices')
-        .find({ upc: req.params.upc })
-        .toArray()
-        .then((prices) => {
-        console.log(prices);
-        res.send(prices);
+    req.firestore.collection('prices')
+        //.where('upc', '==', req.params.upc)
+        .getAll()
+        .then((querySnapshot) => {
+        res.send(querySnapshot);
         next();
     });
 });
